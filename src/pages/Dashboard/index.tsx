@@ -52,10 +52,7 @@ const Dashboard: React.FC = () => {
 
         return {
           ...transaction,
-          formattedValue:
-            transaction.type === 'outcome'
-              ? `- ${formattedValue}`
-              : formattedValue,
+          formattedValue,
           formattedDate,
         };
       },
@@ -119,6 +116,7 @@ const Dashboard: React.FC = () => {
                 <tr key={transaction.id}>
                   <td className="title">{transaction.title}</td>
                   <td className={transaction.type}>
+                    {transaction.type === 'outcome' && '- '}
                     {transaction.formattedValue}
                   </td>
                   <td>{transaction.category.title}</td>
