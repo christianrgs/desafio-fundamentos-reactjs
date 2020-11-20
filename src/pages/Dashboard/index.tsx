@@ -52,7 +52,10 @@ const Dashboard: React.FC = () => {
 
         return {
           ...transaction,
-          formattedValue,
+          formattedValue:
+            transaction.type === 'outcome'
+              ? `- ${formattedValue}`
+              : formattedValue,
           formattedDate,
         };
       },
